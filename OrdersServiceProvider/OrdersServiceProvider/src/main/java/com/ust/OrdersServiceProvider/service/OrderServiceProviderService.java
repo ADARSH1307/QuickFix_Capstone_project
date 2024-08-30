@@ -3,10 +3,9 @@ package com.ust.OrdersServiceProvider.service;
 
 import com.ust.OrdersServiceProvider.dto.OrderServiceProviderDTO;
 import com.ust.OrdersServiceProvider.dto.OrderServiceProviderWithDetailsDTO;
-import com.ust.OrdersServiceProvider.dto.ServiceProviderDTO;
 import com.ust.OrdersServiceProvider.dto.UserWithDetailsDTO;
-import com.ust.OrdersServiceProvider.feign.ServiceProviderClient;
-import com.ust.OrdersServiceProvider.feign.UserClient;
+import com.ust.OrdersServiceProvider.web.ServiceProviderClient;
+import com.ust.OrdersServiceProvider.web.UserClient;
 import com.ust.OrdersServiceProvider.model.OrderServiceProvider;
 import com.ust.OrdersServiceProvider.repo.OrderServiceProviderRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -14,6 +14,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
         @Id
         private String sid;
+        private String name;
         private String email;
         private String password;
         private Integer rating;
@@ -24,6 +25,11 @@ import org.springframework.data.mongodb.core.mapping.Document;
         private String profileImg;
         private String serviceType;
         private String working;
+    private ProviderStatus status;
 
+    public enum ProviderStatus {
+        ACCEPTED,
+        PENDING
+    }
 
     }

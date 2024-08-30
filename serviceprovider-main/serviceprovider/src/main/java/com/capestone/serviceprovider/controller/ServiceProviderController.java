@@ -10,6 +10,7 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/provider")
+@CrossOrigin(origins = "http://localhost:3000")
 public class ServiceProviderController {
 
     @Autowired
@@ -19,6 +20,10 @@ public class ServiceProviderController {
     @ResponseStatus(HttpStatus.CREATED)
     public Mono<ServiceProviderDTO> createServiceProvider(@RequestBody ServiceProviderDTO serviceProviderDTO) {
         return serviceProviderService.createServiceProvider(serviceProviderDTO);
+    }
+    @PutMapping("/changestatus/{sid}")
+    public Mono<ServiceProviderDTO> updateServiceProviderstatus(@PathVariable String sid) {
+        return serviceProviderService.updateServiceProviderstatus(sid);
     }
 
     @GetMapping("/{sid}")
@@ -45,5 +50,29 @@ public class ServiceProviderController {
     @GetMapping("/city/{city}")
     public Flux<ServiceProviderDTO> getServiceProvidersByCity(@PathVariable String city) {
         return serviceProviderService.getServiceProvidersByCity(city);
+    }
+
+
+
+
+    @GetMapping("/plumbers")
+    public Flux<ServiceProviderDTO> getPlumbers() {
+        return serviceProviderService.getAllServiceProviders().filter(serviceProvider -> serviceProvider.getServiceType().equals("Plumber"));
+    }
+    @GetMapping("/carpenters")
+    public Flux<ServiceProviderDTO> getCarpenters() {
+        return serviceProviderService.getAllServiceProviders().filter(serviceProvider -> serviceProvider.getServiceType().equals("Carpenter"));
+    }
+    @GetMapping("/tutors")
+    public Flux<ServiceProviderDTO> getTutors() {
+        return serviceProviderService.getAllServiceProviders().filter(serviceProvider -> serviceProvider.getServiceType().equals("Tutor"));
+    }
+    @GetMapping("/electricians")
+    public Flux<ServiceProviderDTO> getElectricians() {
+        return serviceProviderService.getAllServiceProviders().filter(serviceProvider -> serviceProvider.getServiceType().equals("Electrician"));
+    }
+    @GetMapping("/saloon")
+    public Flux<ServiceProviderDTO> getCleaners() {
+        return serviceProviderService.getAllServiceProviders().filter(serviceProvider -> serviceProvider.getServiceType().equals("Saloon"));
     }
 }

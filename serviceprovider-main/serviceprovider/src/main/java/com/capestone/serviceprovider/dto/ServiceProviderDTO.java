@@ -1,5 +1,6 @@
 package com.capestone.serviceprovider.dto;
 
+import com.capestone.serviceprovider.model.ServiceProvider;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,6 +12,7 @@ import org.springframework.data.annotation.Id;
 public class ServiceProviderDTO {
     @Id
     private String sid;
+    private String name;
     private String email;
     private String password;
     private Integer rating;
@@ -21,6 +23,6 @@ public class ServiceProviderDTO {
     private String profileImg;
     private String serviceType;
     private String working;
-
+    private ServiceProvider.ProviderStatus status;
     // Constructors, getters, and setters
 }

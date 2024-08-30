@@ -1,25 +1,27 @@
-package com.ust.OrdersServiceProvider.feign;
+package com.ust.OrdersServiceProvider.web;
+
 
 import com.ust.OrdersServiceProvider.dto.ServiceProviderDTO;
-import com.ust.OrdersServiceProvider.dto.UserDTO;
+
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.client.WebClient;
+
 import reactor.core.publisher.Mono;
 
 @Component
-public class UserClient {
+public class ServiceProviderClient {
     private final WebClient webClient;
 
-    public UserClient(WebClient.Builder webClientBuilder) {
+    public ServiceProviderClient(WebClient.Builder webClientBuilder) {
         this.webClient = webClientBuilder.baseUrl("http://localhost:8888").build();
 
     }
 
-    public Mono<UserDTO> getServiceProviderById(String uid) {
+    public Mono<ServiceProviderDTO> getServiceProviderById(String sid) {
         return webClient.get()
-                .uri("/user/get/{uid}", uid)
+                .uri("/provider/{sid}", sid)
                 .retrieve()
-                .bodyToMono(UserDTO.class);
+                .bodyToMono(ServiceProviderDTO.class);
     }
 
 
