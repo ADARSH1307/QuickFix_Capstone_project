@@ -35,7 +35,7 @@ public class AdminService {
     public Flux<Object> listServiceProviders() {
         return webClientBuilder.build()
                 .get()
-                .uri("http://localhost:8888/provider")
+                .uri("http://localhost:8088/provider")
                 .retrieve()
                 .bodyToFlux(Object.class);
     }
@@ -43,7 +43,7 @@ public class AdminService {
     public Flux<Object> listUsers() {
         return webClientBuilder.build()
                 .get()
-                .uri("http://localhost:8888/user/getall")
+                .uri("http://localhost:8088/user/getall")
                 .retrieve()
                 .bodyToFlux(Object.class);
     }
@@ -51,7 +51,7 @@ public class AdminService {
     public Mono<Object> updateProviderStatus(String sid) {
         return webClientBuilder.build()
                 .put()
-                .uri("http://localhost:8888/provider/changestatus/" + sid)
+                .uri("http://localhost:8088/provider/changestatus/" + sid)
                 .retrieve()
                 .bodyToMono(Object.class);
     }
@@ -59,7 +59,7 @@ public class AdminService {
     public Mono<Void> deleteServiceProvider(String sid) {
         return webClientBuilder.build()
                 .delete()
-                .uri("http://localhost:8888/provider/" + sid)
+                .uri("http://localhost:8088/provider/" + sid)
                 .retrieve()
                 .bodyToMono(Void.class);
     }
@@ -67,7 +67,7 @@ public class AdminService {
     public Mono<Void> deleteUser(String uid) {
         return webClientBuilder.build()
                 .delete()
-                .uri("http://localhost:8888/user/delete/" + uid)
+                .uri("http://localhost:8088/user/delete/" + uid)
                 .retrieve()
                 .bodyToMono(Void.class);
     }

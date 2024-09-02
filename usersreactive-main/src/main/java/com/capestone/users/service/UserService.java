@@ -17,6 +17,7 @@ public class UserService {
     private UserRepository userRepository;
 
     public Mono<UserDTO> createUser(UserDTO userDTO) {
+        userDTO.setProfileImg("https://freesvg.org/img/abstract-user-flat-4.png");
         User user = convertToEntity(userDTO);
         return userRepository.save(user).map(this::convertToDTO);
     }

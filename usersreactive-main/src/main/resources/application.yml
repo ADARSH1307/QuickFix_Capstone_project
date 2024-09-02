@@ -8,7 +8,7 @@ spring:
       database: ust
 
 server:
-  port: 0  # This will assign a random available port
+  port: 8087  # This will assign a random available port
 
 eureka:
   client:

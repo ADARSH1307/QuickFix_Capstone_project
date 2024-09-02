@@ -13,7 +13,7 @@ public class ServiceProviderClient {
     private final WebClient webClient;
 
     public ServiceProviderClient(WebClient.Builder webClientBuilder) {
-        this.webClient = webClientBuilder.baseUrl("http://localhost:8888").build();
+        this.webClient = webClientBuilder.baseUrl("http://localhost:8088").build();
 
     }
 
